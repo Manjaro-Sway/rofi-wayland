@@ -8,12 +8,13 @@
 # Contributor: Rasi <rasi@xssn.at>
 # Contributor: Sean Pringle <sean.pringle@gmail.com>
 # Contributor: SanskritFritz (gmail)
+# Contributor: Jonas Strassel <info@jonas-strassel.de>
 
-pkgname=rofi-lbonn-wayland-git
-pkgver=1.7.3.wayland1.r51.g1e8c22b4
+pkgname=rofi-wayland
+pkgver=1.7.3
 pkgrel=1
 pkgdesc='A window switcher, application launcher and dmenu replacement (fork with Wayland support)'
-arch=('x86_64')
+arch=('x86_64' 'aarch64')
 url='https://github.com/lbonn/rofi'
 license=(MIT)
 depends=('check' 'librsvg' 'libxdg-basedir' 'libxkbcommon-x11' 'startup-notification'
@@ -21,13 +22,9 @@ depends=('check' 'librsvg' 'libxdg-basedir' 'libxkbcommon-x11' 'startup-notifica
 makedepends=('git' 'meson' 'wayland-protocols')
 optdepends=('i3-wm: use as a window switcher')
 provides=('rofi')
-conflicts=('rofi')
-source=("$pkgname::git+$url.git#branch=wayland")
+conflicts=("rofi" "rofi-lbonn-wayland-git")
+source=("${pkgname}::git+${url}.git#tag=$pkgver#branch=wayland")
 sha256sums=('SKIP')
-
-pkgver() {
-  git -C $pkgname describe --long | sed 's/\([^-]*-g\)/r\1/;s/[-+]/./g'
-}
 
 prepare() {
   git -C $pkgname submodule update --init
@@ -40,14 +37,9 @@ build() {
   meson compile -C build
 }
 
-check() {
-  LC_ALL=C meson test -C build
-}
-
 package() {
   meson install -C build --destdir="$pkgdir"
 
   install -Dm644 $pkgname/COPYING -t "$pkgdir/usr/share/licenses/$pkgname/"
   install -Dm755 $pkgname/Examples/*.sh -t "$pkgdir/usr/share/doc/rofi/examples/"
 }
-
