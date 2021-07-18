@@ -12,9 +12,9 @@
 _gitname=rofi
 pkgname=rofi-wayland
 pkgver=1.6.1
-pkgrel=1
+pkgrel=2
 pkgdesc='A window switcher, application launcher and dmenu replacement (Wayland fork)'
-arch=(x86_64)
+arch=(x86_64 aarch64)
 url="https://github.com/lbonn/$_gitname"
 license=(MIT)
 depends=(libxdg-basedir startup-notification libxkbcommon-x11 xcb-util-wm xcb-util-xrm librsvg wayland)
