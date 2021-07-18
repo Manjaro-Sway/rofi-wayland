@@ -38,10 +38,6 @@ build() {
   meson compile -C build
 }
 
-check() {
-  LC_ALL=C meson test -C build
-}
-
 package() {
   meson install -C build --destdir="$pkgdir"
 
