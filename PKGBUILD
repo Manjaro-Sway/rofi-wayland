@@ -22,7 +22,7 @@ depends=(libxdg-basedir startup-notification libxkbcommon-x11 xcb-util-cursor xc
 makedepends=(check git meson wayland-protocols)
 provides=(rofi)
 conflicts=("rofi" "rofi-lbonn-wayland-git")
-source=("${_gitname}::git+${url}.git#tag=$pkgver-wayland")
+source=("${_gitname}::git+${url}.git#tag=$pkgver")
 sha256sums=('SKIP')
 
 prepare() {
