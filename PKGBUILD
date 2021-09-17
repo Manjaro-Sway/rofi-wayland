@@ -12,7 +12,7 @@
 pkgname=rofi-wayland
 pkgver=1.7.0
 _gitname=rofi
-pkgrel=1
+pkgrel=2
 pkgdesc='A window switcher, application launcher and dmenu replacement (Wayland fork)'
 arch=(x86_64 aarch64)
 url='https://github.com/lbonn/rofi'
@@ -34,7 +34,7 @@ build() {
     -D wayland=enabled
     -D check=enabled
   )
-  arch-meson rofi build "${meson_options[@]}"
+  arch-meson $_gitname build "${meson_options[@]}"
   meson compile -C build
 }
 
