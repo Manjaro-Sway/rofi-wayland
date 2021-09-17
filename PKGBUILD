@@ -12,7 +12,7 @@
 _gitname=rofi
 pkgname=rofi-wayland
 pkgver=1.7.0
-pkgrel=2
+pkgrel=3
 pkgdesc='A window switcher, application launcher and dmenu replacement (Wayland fork)'
 arch=(x86_64 aarch64)
 url="https://github.com/lbonn/$_gitname"
@@ -22,7 +22,7 @@ depends=(libxdg-basedir startup-notification libxkbcommon-x11 xcb-util-cursor xc
 makedepends=(check git meson wayland-protocols)
 provides=(rofi)
 conflicts=("rofi" "rofi-lbonn-wayland-git")
-source=("${_gitname}::git+${url}.git#tag=$pkgver")
+source=("${_gitname}::git+${url}.git#tag=$pkgver#branch=wayland")
 sha256sums=('SKIP')
 
 prepare() {
