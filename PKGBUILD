@@ -11,7 +11,7 @@
 # Contributor: Jonas Strassel <info@jonas-strassel.de>
 
 pkgname=rofi-wayland
-pkgver=1.7.3
+pkgver=1.7.5
 pkgrel=1
 pkgdesc='A window switcher, application launcher and dmenu replacement (fork with Wayland support)'
 arch=('x86_64' 'aarch64')
